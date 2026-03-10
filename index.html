@@ -264,12 +264,12 @@ body { height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 
 
 <!-- DOWNLOAD BUTTON -->
-<div style="position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:8px 16px calc(20px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 35%);z-index:103">
-  <button onclick="openPwd()" style="width:100%;background:#1c1c1e;color:white;border:none;border-radius:var(--radius-lg);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px">
+<div style="position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:8px 16px calc(20px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 35%);z-index:103;pointer-events:none">
+  <button onclick="openPwd()" style="width:100%;background:#1c1c1e;color:white;border:none;border-radius:var(--radius-lg);padding:14px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;pointer-events:auto">
     <span>↓</span> Descargar reporte
   </button>
   <div style="text-align:center;padding-top:6px">
-    <button onclick="if(confirm('¿Borrar todas las acciones del día?')){clearState();goRoute();}" style="background:none;border:none;color:var(--label3);font-size:13px;cursor:pointer;font-family:inherit;padding:4px 8px">Limpiar día ✕</button>
+    <button onclick="if(confirm('¿Borrar todas las acciones del día?')){clearState();goRoute();}" style="background:none;border:none;color:var(--label3);font-size:13px;cursor:pointer;font-family:inherit;padding:4px 8px;pointer-events:auto">Limpiar día ✕</button>
   </div>
 </div>
 
@@ -292,6 +292,11 @@ body { height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; }
     <div class="mover-wrap" id="mover-wrap">
       <input class="mover-input" id="mover-input" placeholder="¿A qué ruta? ej: Ruta Clara Martes">
       <button class="mover-ok" onclick="confirmMover()">Confirmar</button>
+    </div>
+  </div>
+  <div id="quitar-wrap" style="display:none">
+    <div class="sheet-group">
+      <button class="sheet-btn" onclick="doAction('quitar')"><span class="sheet-icon">↩</span><span class="c-gray">Quitar acción</span></button>
     </div>
   </div>
   <button class="sheet-cancel" onclick="closeSheet()">Cancelar</button>
